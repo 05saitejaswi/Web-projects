@@ -1,0 +1,32 @@
+h1 {
+  text-align: center;
+}
+div {
+  display: block;
+  padding-left: 300px;
+  padding-top: 60px;
+}
+.name {
+  width: 55%;
+  height: 50px;
+}
+label {
+  font-size: 25px;
+  color: rgb(26, 70, 72);
+}
+.form-example-save {
+  padding-left: 1300px;
+  padding-top: 10px;
+  /* background-color: #4CAF50; */
+  /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: 16px;
+}
+.form-example-back {
+  padding-left: 20px;
+  padding-top: 5px;
+}

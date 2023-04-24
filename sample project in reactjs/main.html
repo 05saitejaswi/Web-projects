@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.6.3/ui-grid.js"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="main.js"></script>
+<script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+
+<link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css">
+
+<link rel="stylesheet" href="main.css">
+
+<body>
+
+    <div ng-app="mainApp" ng-controller="CRUDController">
+       
+        <div class="container">
+
+            <div class="header">
+                <h1>Sample Form</h1>
+            </div>
+            <form class="flex-container" name="myForm" novalidate>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" ng-model="Name" class="form-control" name="Name" required>
+                    <span style="color:red" ng-show="myForm.Name.$dirty && myForm.Name.$invalid">
+                        <span ng-show="myForm.Name.$error.required">Name is required.</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <input type="text" ng-model="Type" class="form-control" name="Type" required>
+                    <span style="color:red" ng-show="myForm.Type.$dirty && myForm.Type.$invalid">
+                        <span ng-show="myForm.Type.$error.required">Type is required.</span>
+                    </span>
+                </div>
+                <div class="but"><input class="add" type="button" ng-click="AddData()" value="save Data" ng-disabled="myForm.Name.$dirty && myForm.Name.$invalid ||  
+myForm.Type.$dirty && myForm.Type.$invalid"></div>
+            </form>
+
+
+            <div ui-grid="{ data: EmpList ,columnDefs:columnDefs}" class="ui-grid"></div>
+            <div>
+                <button class="submit" ng-click="Submit()">Submit Data</button>
+                <div id="display" style="padding:10px 0;">{{display}}</div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
